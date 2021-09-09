@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+    
+<section id="welcome-banner">
+    <div id="welcome-banner-proceed">
+        <i class="fas fa-angle-down"></i>
+    </div>
+</section>
+
+<section id="welcome-content" class="container">
+    <h2>Welcome</h2>
+    <p>
+        (Content to be added)
+    </p>
+</section>
+
+<script>
+    $(document).ready(function() {
+        // Scroll down to main welcome section when clicking on the proceed button in the welcome banner
+        $('#welcome-banner-proceed').on('click', function(){
+            $('html,body').animate({ scrollTop: $('#welcome-content').offset().top - 40 }, 800); 
+        });
+    });
+</script>
+
+{% endblock %}

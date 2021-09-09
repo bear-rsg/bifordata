@@ -1,0 +1,267 @@
+
+/* ---------- General ---------- */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #344152;
+    margin: 0;
+    font-weight: 300;
+    background-color: white;
+}
+
+a {
+    color: #3C851C;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #ac0d0d;
+}
+
+h1 {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+    color: #3C851C;
+    font-weight: 200;
+}
+
+h2 {
+    padding-top: 2em;
+    color: #3C851C;
+    font-weight: 300;
+    text-align: center;
+    font-size: 1.7em;
+    margin: 1.5em 0 1em 0;
+}
+
+h3 {
+    padding: 2em 0 0.5em 0;
+    color: #3C851C;
+    font-weight: 500;
+    text-align: left;
+    font-size: 1.5em;
+}
+
+.iframe-large {
+    display: block;
+    margin: 0 auto;
+    overflow: scroll;
+    width: 100%;
+    height: calc(90vh - 7em);
+    border: none;
+}
+
+.youtube-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 0;
+    height: 0;
+    margin: 7em auto;
+}
+
+.youtube-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ---------- Forms ---------- */
+
+label {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 2em;
+    font-size: 0.95em;
+}
+
+label.label-active {
+    color: #3C851C;
+}
+
+.helptext {
+    font-size: 0.9em;
+    color: #AAA;
+}
+
+.errorlist {
+    color: red;
+}
+
+input,
+textarea,
+select,
+button[type='submit'] {
+    width: 100%;
+    display: block;
+    padding: 0.3em;
+}
+
+#story-create-form input,
+#story-create-form textarea,
+#story-create-form select {
+    background: #EEE;
+    border: none;
+}
+
+#story-create-form input[type='file'] {
+    border: 1px solid white;
+    background: none;
+}
+
+input[type='checkbox'] {
+    display: inline;
+    width: auto;
+}
+
+form ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+form ul li {
+    display: inline-block;
+}
+
+form ul li label {
+    margin: 0.3em 2em 0 0;
+    cursor: pointer;
+}
+
+form ul li label:hover {
+    color: #3C851C;
+}
+
+button[type='submit'],
+button[type='submit']:visited {
+    background: #3C851C;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 1em;
+    border-radius: 0.5em;
+    margin: 3em 0 1em 0;
+}
+
+button[type='submit']:hover {
+    background: #ac0d0d;
+    color: white;
+}
+
+.form-submit-notes {
+    font-size: 0.9em;
+    color: #AAA;
+}
+
+/* ---------- Navigation ---------- */
+
+nav {
+    color: #344152;
+    background-color: white;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.navbar-brand {
+    display: inline-block;
+    text-transform: capitalize;
+    font-size: 1.6em;
+    color: #3C851C;
+}
+
+.navbar-nav {
+    letter-spacing: 0.15em;
+}
+
+.nav-link {
+    font-weight: 300;
+    font-size: 1.1em;
+    color: #344152;
+}
+
+.nav-link.active {
+    color: #3C851C;
+}
+
+nav a:hover,
+.dropdown-item:hover {
+    color: #3C851C;
+}
+
+/* ---------- Main ---------- */
+
+main {
+    padding-bottom: 4em;
+}
+
+main p,
+main ul,
+main ol {
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+main a {
+    text-decoration: none;
+}
+
+/* ---------- Welcome ---------- */
+
+#welcome-banner {
+	background: url('../images/welcome-bg.jpg');
+	background-size: cover;
+	background-position: bottom;
+	background-attachment: fixed;
+	background-color: white;
+    height: calc(100vh - 3em);
+}
+
+#welcome-banner-proceed {
+    font-size: 3em;
+	position: absolute;
+	bottom: 0.8em;
+    left: calc(50% - 40px);
+    border-radius: 100%;
+    border: 4px solid white;
+    width: 80px;
+    height: 80px;
+	text-align: center;
+	color: white;
+    cursor: pointer;
+    line-height: 80px;
+}
+
+#welcome-banner-proceed:hover {
+    background-color: white;
+    color: black;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    padding: 5em 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+#footer-content-text {
+    margin-top: 2em;
+}
+
+footer a:hover {
+    color: #3C851C;
+}
+
+/* ---------- Error Pages ---------- */
+
+.errorpage-path {
+    font-weight: bold;
+}
+
+.errorpage-code {
+    margin-top: 3em;
+    font-size: 0.8em;
+}
