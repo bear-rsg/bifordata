@@ -10,7 +10,7 @@ body {
 }
 
 a {
-    color: #3C851C;
+    color: #6b662f;
     font-weight: 500;
 }
 
@@ -23,13 +23,13 @@ h1 {
     margin: 0;
     padding: 0;
     line-height: 1em;
-    color: #3C851C;
+    color: #6b662f;
     font-weight: 200;
 }
 
 h2 {
     padding-top: 2em;
-    color: #3C851C;
+    color: #6b662f;
     font-weight: 300;
     text-align: center;
     font-size: 1.7em;
@@ -38,7 +38,7 @@ h2 {
 
 h3 {
     padding: 2em 0 0.5em 0;
-    color: #3C851C;
+    color: #6b662f;
     font-weight: 500;
     text-align: left;
     font-size: 1.5em;
@@ -79,7 +79,7 @@ label {
 }
 
 label.label-active {
-    color: #3C851C;
+    color: #6b662f;
 }
 
 .helptext {
@@ -132,12 +132,12 @@ form ul li label {
 }
 
 form ul li label:hover {
-    color: #3C851C;
+    color: #6b662f;
 }
 
 button[type='submit'],
 button[type='submit']:visited {
-    background: #3C851C;
+    background: #6b662f;
     border: none;
     color: white;
     font-weight: bold;
@@ -169,7 +169,11 @@ nav {
     display: inline-block;
     text-transform: capitalize;
     font-size: 1.6em;
-    color: #3C851C;
+    color: #6b662f;
+}
+
+.navbar-brand img {
+    height: 1em;
 }
 
 .navbar-nav {
@@ -183,12 +187,12 @@ nav {
 }
 
 .nav-link.active {
-    color: #3C851C;
+    color: #6b662f;
 }
 
 nav a:hover,
 .dropdown-item:hover {
-    color: #3C851C;
+    color: #6b662f;
 }
 
 /* ---------- Main ---------- */
@@ -252,7 +256,7 @@ footer {
 }
 
 footer a:hover {
-    color: #3C851C;
+    color: #6b662f;
 }
 
 /* ---------- Error Pages ---------- */

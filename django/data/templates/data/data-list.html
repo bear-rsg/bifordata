@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+    
+    <div class="container">
+
+        <h2>Events</h2>
+
+        <!-- Filter -->
+        <div id="events-list-filter">
+            <label for="events-list-filter-input">Search</label>
+            <input type="text" id="events-list-filter-input" title="events-list-filter-input" name="events-list-filter-input">
+        </div>
+
+        <!-- Events -->
+        <section id="events-list">
+            {% for object in object_list %}
+                <a href="{% url 'events:event-detail' object.id %}" class="events-list-item">
+                    <div class="events-list-item-name"> {{ object.name }}</div>
+                    <div class="events-list-item-details">
+                        <div><strong>Location:</strong> {{ object.location }}</div>
+                        <div><strong>Start:</strong> {{ object.start_datetime }}</div>
+                        <div><strong>Finish:</strong> {{ object.finish_datetime }}</div>
+                    </div>
+                    <div class="events-list-item-text"> {{ object.description | striptags | truncatechars:100 }}</div>
+                </a>
+            {% empty %}
+                <p>
+                    There are no events to show yet. Please check back soon.
+                </p>
+            {% endfor %}
+        </section>
+
+        <script>
+            $(document).ready(function() {
+                function filter_list(filterText, itemClass)
+                {
+                    // For each instance of the class
+                    $(itemClass).each(function(){
+                        // If the filter text exists within the text contained within this class, then show it
+                        if($(this).text().toUpperCase().indexOf(filterText) != -1) $(this).show();
+                        // If the filter text does not exist then hide this instance of the class
+                        else $(this).hide();
+                    });
+                }
+                $("#events-list-filter-input").on('keyup', function(){
+                    var filterText = $(this).val().toUpperCase();
+                    filter_list(filterText, ".events-list-item")
+                });
+            });
+        </script>
+    
+    </div>
+
+{% endblock %}
