@@ -216,6 +216,7 @@ main a {
 
 #welcome-banner {
 	background: url('../images/welcome-bg.jpg');
+    /* https://unsplash.com/photos/hZX4tYgljUI */
 	background-size: cover;
 	background-position: bottom;
 	background-attachment: fixed;
