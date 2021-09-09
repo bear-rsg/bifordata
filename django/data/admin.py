@@ -22,7 +22,7 @@ def unpublish_event(modeladmin, request, queryset):
 unpublish_event.short_description = "Unpublish selected events (will not appear on main site)"
 
 
-class EventAdminView(admin.ModelAdmin):
+class DataAdminView(admin.ModelAdmin):
     """
     Customise the content of the list of Responses in the Django admin
     """
@@ -41,4 +41,4 @@ class EventAdminView(admin.ModelAdmin):
 
 
 # Register
-admin.site.register(models.Event, EventAdminView)
+admin.site.register(models.Data, DataAdminView)

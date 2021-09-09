@@ -65,8 +65,14 @@
                     </li>
                     <!-- About -->
                     <li class="nav-item">
-                        <a class="nav-link{% if '/about/' in request.path %} active{% endif %}" href="{% url 'general:about' %}">
+                        <a class="nav-link" href="https://www.birmingham.ac.uk/research/bifor/index.aspx" target="_blank">
                             About
+                        </a>
+                    </li>
+                    <!-- Data -->
+                    <li class="nav-item">
+                        <a class="nav-link{% if '/data/' in request.path %} active{% endif %}" href="{% url 'data:data-list' %}">
+                            Data
                         </a>
                     </li>
                 </ul>

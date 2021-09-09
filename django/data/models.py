@@ -2,7 +2,7 @@ from django.db import models
 from datetime import date
 
 
-class Event(models.Model):
+class Data(models.Model):
     """
     A project-related event, e.g. a conference, seminar, etc.
     """

@@ -4,7 +4,7 @@ from django.conf import settings
 
 urlpatterns = [
 
-    # General app's urls
     path('', include('general.urls')),
+    path('data/', include('data.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
