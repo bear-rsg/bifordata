@@ -10,7 +10,7 @@ body {
 }
 
 a {
-    color: #c3a709;
+    color: #b28b01;
     font-weight: 500;
 }
 
@@ -23,13 +23,13 @@ h1 {
     margin: 0;
     padding: 0;
     line-height: 1em;
-    color: #c3a709;
+    color: #b28b01;
     font-weight: 200;
 }
 
 h2 {
     padding-top: 2em;
-    color: #c3a709;
+    color: #b28b01;
     font-weight: 300;
     text-align: center;
     font-size: 1.7em;
@@ -38,7 +38,7 @@ h2 {
 
 h3 {
     padding: 2em 0 0.5em 0;
-    color: #c3a709;
+    color: #b28b01;
     font-weight: 500;
     text-align: left;
     font-size: 1.5em;
@@ -79,7 +79,7 @@ label {
 }
 
 label.label-active {
-    color: #c3a709;
+    color: #b28b01;
 }
 
 .helptext {
@@ -132,12 +132,12 @@ form ul li label {
 }
 
 form ul li label:hover {
-    color: #c3a709;
+    color: #b28b01;
 }
 
 button[type='submit'],
 button[type='submit']:visited {
-    background: #c3a709;
+    background: #b28b01;
     border: none;
     color: white;
     font-weight: bold;
@@ -147,7 +147,7 @@ button[type='submit']:visited {
 }
 
 button[type='submit']:hover {
-    background: #c3a709;
+    background: #b28b01;
     color: white;
 }
 
@@ -169,7 +169,7 @@ nav {
     display: inline-block;
     text-transform: capitalize;
     font-size: 1.6em;
-    color: #c3a709;
+    color: #b28b01;
 }
 
 .navbar-brand img {
@@ -187,12 +187,12 @@ nav {
 }
 
 .nav-link.active {
-    color: #c3a709;
+    color: #b28b01;
 }
 
 nav a:hover,
 .dropdown-item:hover {
-    color: #c3a709;
+    color: #b28b01;
 }
 
 /* ---------- Main ---------- */
@@ -233,14 +233,14 @@ main a {
     padding-top: 5px;
     height: 80px;
 	text-align: center;
-    color: #c3a709;
+    color: #b28b01;
     background: white;
     cursor: pointer;
     line-height: 80px;
 }
 
 #welcome-banner-proceed:hover {
-    background-color: #c3a709;
+    background-color: #b28b01;
     color: white;
 }
 
@@ -257,7 +257,7 @@ footer {
 }
 
 footer a:hover {
-    color: #c3a709;
+    color: #b28b01;
 }
 
 /* ---------- Error Pages ---------- */
