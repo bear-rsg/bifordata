@@ -1,9 +1,5 @@
 @media (min-width: 992px) {
     /* ---------- Navigation ---------- */
-    
-    h1 {
-        font-size: 1em;
-    }
 
     .navbar-brand {
         padding-left: 0.3em;
