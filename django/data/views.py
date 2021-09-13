@@ -9,4 +9,4 @@ class DataListView(ListView):
     """
 
     template_name = 'data/data-list.html'
-    queryset = models.Data.objects.filter(admin_published=True)
+    queryset = models.DataLink.objects.filter(admin_published=True)
