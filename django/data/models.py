@@ -1,5 +1,4 @@
 from django.db import models
-from datetime import date
 
 
 class DataLinkCategory(models.Model):
@@ -20,7 +19,7 @@ class DataLinkCategory(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     @property
     def description_short(self):
         return self.description[:75]
