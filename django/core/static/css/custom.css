@@ -10,7 +10,7 @@ body {
 }
 
 a {
-    color: #3C851C;
+    color: #937200;
     font-weight: 500;
 }
 
@@ -19,17 +19,17 @@ a:hover {
 }
 
 h1 {
-    font-size: 0.9em;
+    font-size: 1em;
     margin: 0;
     padding: 0;
     line-height: 1em;
-    color: #3C851C;
+    color: #937200;
     font-weight: 200;
 }
 
 h2 {
     padding-top: 2em;
-    color: #3C851C;
+    color: #937200;
     font-weight: 300;
     text-align: center;
     font-size: 1.7em;
@@ -38,7 +38,7 @@ h2 {
 
 h3 {
     padding: 2em 0 0.5em 0;
-    color: #3C851C;
+    color: #937200;
     font-weight: 500;
     text-align: left;
     font-size: 1.5em;
@@ -79,7 +79,7 @@ label {
 }
 
 label.label-active {
-    color: #3C851C;
+    color: #937200;
 }
 
 .helptext {
@@ -132,12 +132,12 @@ form ul li label {
 }
 
 form ul li label:hover {
-    color: #3C851C;
+    color: #937200;
 }
 
 button[type='submit'],
 button[type='submit']:visited {
-    background: #3C851C;
+    background: #937200;
     border: none;
     color: white;
     font-weight: bold;
@@ -147,7 +147,7 @@ button[type='submit']:visited {
 }
 
 button[type='submit']:hover {
-    background: #ac0d0d;
+    background: #937200;
     color: white;
 }
 
@@ -169,7 +169,11 @@ nav {
     display: inline-block;
     text-transform: capitalize;
     font-size: 1.6em;
-    color: #3C851C;
+    color: #937200;
+}
+
+.navbar-brand img {
+    height: 1em;
 }
 
 .navbar-nav {
@@ -183,12 +187,12 @@ nav {
 }
 
 .nav-link.active {
-    color: #3C851C;
+    color: #937200;
 }
 
 nav a:hover,
 .dropdown-item:hover {
-    color: #3C851C;
+    color: #937200;
 }
 
 /* ---------- Main ---------- */
@@ -212,6 +216,7 @@ main a {
 
 #welcome-banner {
 	background: url('../images/welcome-bg.jpg');
+    /* https://unsplash.com/photos/hZX4tYgljUI */
 	background-size: cover;
 	background-position: bottom;
 	background-attachment: fixed;
@@ -225,18 +230,19 @@ main a {
 	bottom: 0.8em;
     left: calc(50% - 40px);
     border-radius: 100%;
-    border: 4px solid white;
     width: 80px;
+    padding-top: 5px;
     height: 80px;
 	text-align: center;
-	color: white;
+    color: #937200;
+    background: white;
     cursor: pointer;
     line-height: 80px;
 }
 
 #welcome-banner-proceed:hover {
-    background-color: white;
-    color: black;
+    background-color: #937200;
+    color: white;
 }
 
 /* ---------- Footer ---------- */
@@ -252,7 +258,7 @@ footer {
 }
 
 footer a:hover {
-    color: #3C851C;
+    color: #937200;
 }
 
 /* ---------- Error Pages ---------- */
