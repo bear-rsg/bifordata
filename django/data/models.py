@@ -10,7 +10,7 @@ class DataLinkCategory(models.Model):
     description = models.TextField(blank=True, null=True)
 
     # Admin fields
-    admin_published = models.BooleanField(default=False)
+    admin_published = models.BooleanField(default=True)
     admin_notes = models.TextField(blank=True, null=True)
 
     # Metadata fields
@@ -42,7 +42,7 @@ class DataLink(models.Model):
     category = models.ForeignKey(DataLinkCategory, on_delete=models.SET_NULL, blank=True, null=True)
 
     # Admin fields
-    admin_published = models.BooleanField(default=False)
+    admin_published = models.BooleanField(default=True)
     admin_notes = models.TextField(blank=True, null=True)
 
     # Metadata fields
