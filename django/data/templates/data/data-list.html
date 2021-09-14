@@ -48,7 +48,7 @@
                 <div class="list-options-subtitle">Filter</div>
                 <label for="list-options-filter-category">Category</label>
                 <select id="list-options-filter-category" name="filter_category">
-                    {% include 'data/snippets/select-default.html' %}
+                    <option value="">(Show all categories)</option>
                     {% for category in categories %}
                         <option value="{{ category.id }}">{{ category }}</option>
                     {% endfor %}

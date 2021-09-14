@@ -3,6 +3,7 @@ from . import models
 
 admin.site.site_header = 'BIFoR Data: Admin Dashboard'
 
+
 def publish(modeladmin, request, queryset):
     """
     Sets all selected items in queryset to published

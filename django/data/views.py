@@ -11,14 +11,15 @@ class DataListView(ListView):
     """
 
     template_name = 'data/data-list.html'
-    # queryset = models.DataLink.objects.filter(admin_published=True)
-
     model = models.DataLink
     paginate_by = 100
 
     def get_queryset(self):
         """
-        This view returns either all objects or, if provided, will restrict the returned data based on 'search', 'filter', and 'order' criteria
+        Customise the returned queryset based on
+        user's choices of search, filter, and order.
+
+        Also add other objects, e.g. DataLinkCategories, to use in the page
         """
 
         # Start with all published objects, which may be filtered/ordered below if such data is included in the request
@@ -59,10 +60,6 @@ class DataListView(ListView):
             queryset = queryset.order_by(Lower(order[1:]).desc())
         else:
             queryset = queryset.order_by(Lower(order))
-
-        #
-        # Return data
-        #
 
         return queryset
 
