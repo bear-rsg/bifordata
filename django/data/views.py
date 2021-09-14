@@ -41,7 +41,6 @@ class DataListView(ListView):
         if filter_category != '':
             queryset = queryset.filter(category=filter_category)
 
-
         # Order
         order = self.request.GET.get('order_direction', '') + self.request.GET.get('order_by', 'name')
         # If starts with a '-' then it means order descending
