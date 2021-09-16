@@ -28,19 +28,25 @@
             <!-- Order -->
             <div id="list-options-order">
                 <div class="list-options-subtitle">Order</div>
+               
                 <!-- Order by -->
-                <label for="list-options-order-by">Order by:</label>
-                <select id="list-options-order-by" name="order_by">
-                    <option value="name">Name</option>
-                    <option value="description">Description</option>
-                    <option value="category__name">Category</option>
-                </select>
+                <div class="col-6">
+                    <label for="list-options-order-by">Order by:</label>
+                    <select id="list-options-order-by" name="order_by">
+                        <option value="name">Name</option>
+                        <option value="description">Description</option>
+                        <option value="category__name">Category</option>
+                    </select>
+                </div>
+
                 <!-- Order direction -->
-                <label for="list-options-order-direction">Order direction:</label>
-                <select id="list-options-order-direction" name="order_direction">
-                    <option value="">Ascending (A-Z, 0-9)</option>
-                    <option value="-">Descending (Z-A, 9-0)</option>
-                </select>
+                <div class="col-6">
+                    <label for="list-options-order-direction">Order direction:</label>
+                    <select id="list-options-order-direction" name="order_direction">
+                        <option value="">Ascending (A-Z, 0-9)</option>
+                        <option value="-">Descending (Z-A, 9-0)</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Filter -->
@@ -48,7 +54,7 @@
                 <div class="list-options-subtitle">Filter</div>
                 <label for="list-options-filter-category">Category</label>
                 <select id="list-options-filter-category" name="filter_category">
-                    <option value="">(Show all categories)</option>
+                    <option value="">-- Please select --</option>
                     {% for category in categories %}
                         <option value="{{ category.id }}">{{ category }}</option>
                     {% endfor %}
