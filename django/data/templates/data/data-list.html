@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+<section class="container">
+
+    <!-- List Options -->
+    <div id="list-options">
+        
+        <!-- Form element has no action attribute, so that it submits to the same page -->
+        <form method="GET" class="form-group" id="list-options-form">
+            
+            <!-- Search -->
+            <div id="list-options-search" class="list-options-item">
+                <!-- Search textbox -->
+                <input type="text" name="search" title="search" id="list-options-search-input" placeholder="Search"><!--
+                Search button (the comment must stretch between elements to avoid space on page)
+                --><button type="submit" value="Search" class="btn btn-primary" title="search-btn" id="list-options-search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <!-- Filter -->
+            <div id="list-options-filter" class="list-options-item">
+                <label for="list-options-filter-category">Category</label>
+                <select id="list-options-filter-category" name="filter_category">
+                    <option value="">-- Show all categories --</option>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Sort by -->
+            <div id="list-options-sort-by" class="list-options-item">
+                <label for="list-options-sort-by-select">Sort by:</label>
+                <select id="list-options-sort-by-select" name="sort_by">
+                    <option value="name">File</option>
+                    <option value="category__name">Category</option>
+                </select>
+            </div>
+
+            <!-- Sort direction -->
+            <div id="list-options-sort-direction" class="list-options-item">
+                <label for="list-options-sort-direction-select">Sort direction:</label>
+                <select id="list-options-sort-direction-select" name="sort_direction">
+                    <option value="">Ascending (A-Z, 0-9)</option>
+                    <option value="-">Descending (Z-A, 9-0)</option>
+                </select>
+            </div>
+
+        </form>
+
+        <!-- Links -->
+        <div id="list-options-links">
+            <span id="list-options-links-reset" class="reset-form"><i class="fas fa-redo"></i> Reset</span>
+        </div>
+
+    </div>
+
+    <h3>Files</h3>
+    <!-- List Content -->
+    <div class="list-content">
+        {% for object in object_list %}
+
+            <a href="/datafiles/{{ object.filepath }}" class="list-content-item">
+                <div class="list-content-item-name">
+                    {{ object.name }}
+                </div>
+                <div class="list-content-item-category">
+                    {{ object.category }}
+                </div>
+                <div class="list-content-item-description">
+                    {{ object.description }}
+                </div>
+            </a>
+
+        {% empty %} 
+
+            <div id="list-content-empty">
+                <div id="list-content-empty-title">
+                    No records found.
+                </div>
+                <div id="list-content-empty-details">
+                    Try expanding your search criteria or <strong class="reset-form">resetting the search</strong> to view all items.
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+
+    <!-- List Pagination -->
+    <!-- If there's multiple pages, then show Paginator -->
+    {% if page_obj.paginator.num_pages > 1 %}
+
+        <div class="list-pagination row align-items-center">
+
+            <div class="col-xs-12 col-sm-4">
+
+                <!-- If there's a previous page -->
+                {% if page_obj.has_previous %}
+                    <!-- First Page -->
+                    <div class="list-pagination-action">
+                        <a class="list-pagination-action-button list-pagination-left fas fa-angle-double-left" 
+                            href="?page=1{% include 'researchdata/snippets/list-pagination-urlqueries.html' %}"><span class="hidden">First</span></a>
+                        <div class="list-pagination-action-label">First</div>
+                    </div>
+                    <!-- Previous Page -->
+                    <div class="list-pagination-action">
+                        <a class="list-pagination-action-button list-pagination-left fas fa-angle-left" 
+                            href="?page={{ page_obj.previous_page_number }}{% include 'researchdata/snippets/list-pagination-urlqueries.html' %}"><span class="hidden">Previous</span></a>
+                        <div class="list-pagination-action-label">Previous</div>
+                    </div>
+                {% endif %}
+
+                <!-- If there's NOT a previous page -->
+                {% if page_obj.has_previous == False %}
+                    <!-- First Page -->
+                    <div class="list-pagination-action-disabled">
+                        <div class="list-pagination-action-button list-pagination-left fas fa-angle-double-left"></div>
+                        <div class="list-pagination-action-label">First</div>
+                    </div>
+                    <!-- Previous Page -->
+                    <div class="list-pagination-action-disabled">
+                        <div class="list-pagination-action-button list-pagination-left fas fa-angle-left"></div>
+                        <div class="list-pagination-action-label">Previous</div>
+                    </div>
+                {% endif %}
+
+            </div>
+
+            <div class="col-xs-12 col-sm-4">
+                <!-- Current page info -->
+                <span class="list-pagination-current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+            </div>
+
+            <div class="col-xs-12 col-sm-4">
+
+                <!-- If there's a next page -->
+                {% if page_obj.has_next %}
+                    <!-- Next Page -->
+                    <div class="list-pagination-action">
+                        <a class="list-pagination-action-button list-pagination-right fas fa-angle-right" 
+                            href="?page={{ page_obj.next_page_number }}{% include 'researchdata/snippets/list-pagination-urlqueries.html' %}"><span class="hidden">Next</span></a>
+                        <div class="list-pagination-action-label">Next</div>
+                    </div>
+                    <!-- Last Page -->
+                    <div class="list-pagination-action">
+                        <a class="list-pagination-action-button list-pagination-right fas fa-angle-double-right" 
+                            href="?page={{ page_obj.paginator.num_pages }}{% include 'researchdata/snippets/list-pagination-urlqueries.html' %}"><span class="hidden">Last</span></a>
+                        <div class="list-pagination-action-label">Last</div>
+                    </div>
+                {% endif %}
+
+                <!-- If there's NOT a next page -->
+                {% if page_obj.has_next == False %}
+                    <!-- Next Page -->
+                    <div class="list-pagination-action-disabled">
+                        <div class="list-pagination-action-button list-pagination-right fas fa-angle-right"></div>
+                        <div class="list-pagination-action-label">Next</div>
+                    </div>
+
+                    <!-- Last Page -->
+                    <div class="list-pagination-action-disabled">
+                        <div class="list-pagination-action-button list-pagination-right fas fa-angle-double-right"></div>
+                        <div class="list-pagination-action-label">Last</div>
+                    </div>
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    {% endif %}
+    
+</section>
+
+
+<script>
+    $(document).ready(function() {
+
+        // Submit form when certain field values change
+        $('#list-options-form select').on('change', function(){
+            $('#list-options-form').submit();
+        });
+
+        // Reset form
+        $('.reset-form').on('click', function(){
+            // Go to the current URL but without any parameters (remove everything after ? in url)
+            window.location.replace(window.location.href.split('?')[0]);
+        });
+
+        // Fill form values from URL parameters
+        function setFormItemValueFromUrlParameter(formItemID, urlParameter) {
+            var value = new URL(window.location.href).searchParams.get(urlParameter);
+            if(value) document.getElementById(formItemID).value = value;
+        }
+        // Apply above function to all form fields:
+        // Search
+        setFormItemValueFromUrlParameter("list-options-search-input", "search");
+        // Sort
+        setFormItemValueFromUrlParameter("list-options-sort-by-select", "sort_by");
+        setFormItemValueFromUrlParameter("list-options-sort-direction-select", "sort_direction");
+        // Filter
+        setFormItemValueFromUrlParameter("list-options-filter-category", "filter_category");
+
+    });
+</script>
+
+{% endblock %}
