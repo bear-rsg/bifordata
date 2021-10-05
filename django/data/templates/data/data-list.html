@@ -11,47 +11,39 @@
         <form method="GET" class="form-group" id="list-options-form">
             <!-- Search -->
             <div class="list-options-search row">
-                <div class="col-12">
-                    <div class="input-group">
-                        <!-- Search textbox -->
-                        <input type="text" class="form-control" name="search" title="search" id="list-options-search-input" placeholder="Search">
-                        <!-- Search button -->
-                        <div class="input-group-append">
-                            <button type="submit" value="Search" class="btn btn-primary" title="search-btn" id="list-options-search-button">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
+                <div class="input-group">
+                    <!-- Search textbox -->
+                    <input type="text" class="form-control" name="search" title="search" id="list-options-search-input" placeholder="Search">
+                    <!-- Search button -->
+                    <div class="input-group-append">
+                        <button type="submit" value="Search" class="btn btn-primary" title="search-btn" id="list-options-search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Order -->
-            <div id="list-options-order">
-                <div class="list-options-subtitle">Order</div>
-               
-                <!-- Order by -->
-                <div class="col-6">
-                    <label for="list-options-order-by">Order by:</label>
-                    <select id="list-options-order-by" name="order_by">
-                        <option value="name">Name</option>
-                        <option value="description">Description</option>
-                        <option value="category__name">Category</option>
-                    </select>
-                </div>
+            <!-- Sort by -->
+            <div id="list-options-sort-by">
+                <label for="list-options-sort-by-select">Sort by:</label>
+                <select id="list-options-sort-by-select" name="sort_by">
+                    <option value="name">Name</option>
+                    <option value="description">Description</option>
+                    <option value="category__name">Category</option>
+                </select>
+            </div>
 
-                <!-- Order direction -->
-                <div class="col-6">
-                    <label for="list-options-order-direction">Order direction:</label>
-                    <select id="list-options-order-direction" name="order_direction">
-                        <option value="">Ascending (A-Z, 0-9)</option>
-                        <option value="-">Descending (Z-A, 9-0)</option>
-                    </select>
-                </div>
+            <!-- Sort direction -->
+            <div id="list-options-sort-direction">
+                <label for="list-options-sort-direction-select">Sort direction:</label>
+                <select id="list-options-sort-direction-select" name="sort_direction">
+                    <option value="">Ascending (A-Z, 0-9)</option>
+                    <option value="-">Descending (Z-A, 9-0)</option>
+                </select>
             </div>
 
             <!-- Filter -->
             <div id="list-options-filter">
-                <div class="list-options-subtitle">Filter</div>
                 <label for="list-options-filter-category">Category</label>
                 <select id="list-options-filter-category" name="filter_category">
                     <option value="">-- Please select --</option>
@@ -60,9 +52,6 @@
                     {% endfor %}
                 </select>
             </div>
-
-            <!-- Submit -->
-            <input type="submit" value="Submit" id="list-options-form-submit"> 
         </form>
 
         <!-- Links -->
@@ -187,6 +176,11 @@
 <script>
     $(document).ready(function() {
 
+        // Submit form when certain field values change
+        $('#list-options-form select').on('change', function(){
+            $('#list-options-form').submit();
+        });
+
         // Reset form
         $('.reset-form').on('click', function(){
             // Go to the current URL but without any parameters (remove everything after ? in url)
@@ -201,9 +195,9 @@
         // Apply above function to all form fields:
         // Search
         setFormItemValueFromUrlParameter("list-options-search-input", "search");
-        // Order
-        setFormItemValueFromUrlParameter("list-options-order-by", "order_by");
-        setFormItemValueFromUrlParameter("list-options-order-direction", "order_direction");
+        // Sort
+        setFormItemValueFromUrlParameter("list-options-sort-by-select", "sort_by");
+        setFormItemValueFromUrlParameter("list-options-sort-direction-select", "sort_direction");
         // Filter
         setFormItemValueFromUrlParameter("list-options-filter-category", "filter_category");
 
