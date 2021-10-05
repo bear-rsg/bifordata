@@ -20,12 +20,22 @@
                 </button>
             </div>
 
+            <!-- Filter -->
+            <div id="list-options-filter" class="list-options-item">
+                <label for="list-options-filter-category">Category</label>
+                <select id="list-options-filter-category" name="filter_category">
+                    <option value="">-- Show all categories --</option>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
             <!-- Sort by -->
             <div id="list-options-sort-by" class="list-options-item">
                 <label for="list-options-sort-by-select">Sort by:</label>
                 <select id="list-options-sort-by-select" name="sort_by">
-                    <option value="name">Name</option>
-                    <option value="description">Description</option>
+                    <option value="name">File</option>
                     <option value="category__name">Category</option>
                 </select>
             </div>
@@ -39,17 +49,6 @@
                 </select>
             </div>
 
-            <!-- Filter -->
-            <div id="list-options-filter" class="list-options-item">
-                <label for="list-options-filter-category">Category</label>
-                <select id="list-options-filter-category" name="filter_category">
-                    <option value="">-- Please select --</option>
-                    {% for category in categories %}
-                        <option value="{{ category.id }}">{{ category }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-
         </form>
 
         <!-- Links -->
@@ -59,14 +58,21 @@
 
     </div>
 
-
+    <h3>Files</h3>
     <!-- List Content -->
     <div class="list-content">
         {% for object in object_list %}
 
             <a href="/datafiles/{{ object.filepath }}" class="list-content-item">
-                <div class="list-content-item-title">{{ object.name }} | {{ object.category }}</div>
-                <div class="list-content-item-details">{{ object.description | slice:"250" }}</div>
+                <div class="list-content-item-name">
+                    {{ object.name }}
+                </div>
+                <div class="list-content-item-category">
+                    {{ object.category }}
+                </div>
+                <div class="list-content-item-description">
+                    {{ object.description }}
+                </div>
             </a>
 
         {% empty %} 

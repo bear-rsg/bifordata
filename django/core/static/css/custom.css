@@ -248,14 +248,14 @@ main a {
 /* ---------- Data List ---------- */
 
 #list-options {
-    background: #DDD;
+    background: #F2F2F2;
     padding: 2em;
-    margin: 5em auto 4em auto;
+    margin: 5em auto 1em auto;
 }
 
 .list-options-item {
     display: inline-block;
-    width: 32%;
+    width: 33%;
 }
 
 #list-options-search {
@@ -266,7 +266,8 @@ main a {
     width: calc(100% - 4.3em);
     display: inline-block;
     vertical-align: middle;
-    margin: 0;
+    border-radius: 0.2em 0 0 0.2em;
+    border: 0px solid black;
 }
 
 #list-options-search-button {
@@ -275,16 +276,52 @@ main a {
     margin: 0em;
     border-radius: 0 0.5em 0.5em 0;
     vertical-align: middle;
-    padding: 0.4em 0;
-    
+    padding: 0.32em 0;
+}
+
+#list-options-search-button:hover {
+    opacity: 0.8;
 }
 
 #list-options select {
     width: 100%;
 }
 
+#list-options-links-reset {
+    float: right;
+    cursor: pointer;
+}
+#list-options-links-reset:hover {
+    opacity: 0.8;
+}
+
 .list-content-item {
     display: block;
+    border-left: 1.3rem solid #CCC;
+    padding: 1em;
+    margin: 1em 0;
+    background: #F2F2F2;
+    color: #202020;
+}
+
+.list-content-item:hover {
+    text-decoration: none;
+    border-left: 1.7rem solid #937200;
+    background: #EEE;
+    color: #937200;
+}
+
+.list-content-item-name {
+    font-weight: bold;
+}
+
+.list-content-item-category {
+    margin: 0 0 1em 0;
+    font-size: 0.8em;
+}
+
+.list-content-item-description {
+    font-size: 0.9em;
 }
 
 /* ---------- Footer ---------- */
