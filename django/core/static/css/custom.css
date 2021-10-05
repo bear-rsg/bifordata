@@ -245,6 +245,48 @@ main a {
     color: white;
 }
 
+/* ---------- Data List ---------- */
+
+#list-options {
+    background: #DDD;
+    padding: 2em;
+    margin: 5em auto 4em auto;
+}
+
+.list-options-item {
+    display: inline-block;
+    width: 32%;
+}
+
+#list-options-search {
+    width: 100%;
+}
+
+#list-options-search-input {
+    width: calc(100% - 4.3em);
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+
+#list-options-search-button {
+    display: inline-block;
+    width: 4em;
+    margin: 0em;
+    border-radius: 0 0.5em 0.5em 0;
+    vertical-align: middle;
+    padding: 0.4em 0;
+    
+}
+
+#list-options select {
+    width: 100%;
+}
+
+.list-content-item {
+    display: block;
+}
+
 /* ---------- Footer ---------- */
 
 footer {

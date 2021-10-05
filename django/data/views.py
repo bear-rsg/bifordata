@@ -41,15 +41,15 @@ class DataListView(ListView):
         if filter_category != '':
             queryset = queryset.filter(category=filter_category)
 
-        # Order
-        order = self.request.GET.get('order_direction', '') + self.request.GET.get('order_by', 'name')
-        # If starts with a '-' then it means order descending
-        if order[0] == '-':
-            queryset = queryset.order_by(Lower(order[1:]).desc())
+        # Sort
+        sort = self.request.GET.get('sort_direction', '') + self.request.GET.get('sort_by', 'name')
+        # If starts with a '-' then it means sort descending
+        if sort[0] == '-':
+            queryset = queryset.order_by(Lower(sort[1:]).desc())
         else:
-            queryset = queryset.order_by(Lower(order))
+            queryset = queryset.order_by(Lower(sort))
 
-        # Return the searched, filtered, and ordered queryset
+        # Return the searched, filtered, and sorted queryset
         return queryset
 
     def get_context_data(self, **kwargs):
