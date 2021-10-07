@@ -1,61 +1,58 @@
-from django.views.generic import (ListView,)
+from django.views.generic import (ListView, DetailView)
 from django.db.models import Q
 from django.db.models.functions import Lower
 from . import models
 
 
-class DataListView(ListView):
+class DataHomeView(ListView):
     """
-    Data: List
-    Class-based view to show the data list template
+    Class-based view to show the data 'home' (i.e. root folder)
+    The 'home' is for all folders and files without a parent folder,
+    as these are assumed to be at the home/root level
     """
 
-    template_name = 'data/data-list.html'
-    model = models.DataLink
+    template_name = 'data/data.html'
+    model = models.Folder
     paginate_by = 100
 
     def get_queryset(self):
         """
         Customise the returned queryset based on
         user's choices of search, filter, and order.
-
-        Also add other objects, e.g. DataLinkCategories, to use in the page
         """
 
         # Start with all published objects,
-        queryset = self.model.objects.filter(admin_published=True)
-
-        # Search
-        search = self.request.GET.get('search', '')
-        if search != '':
-            queryset = queryset.filter(
-                Q(id__contains=search) |
-                Q(name__contains=search) |
-                Q(description__contains=search) |
-                Q(filepath__contains=search) |
-                Q(category__name__contains=search)
-            )
-
-        # Filter
-        filter_category = self.request.GET.get('filter_category', '')
-        if filter_category != '':
-            queryset = queryset.filter(category=filter_category)
-
-        # Sort
-        sort = self.request.GET.get('sort_direction', '') + self.request.GET.get('sort_by', 'name')
-        # If starts with a '-' then it means sort descending
-        if sort[0] == '-':
-            queryset = queryset.order_by(Lower(sort[1:]).desc())
-        else:
-            queryset = queryset.order_by(Lower(sort))
+        queryset = self.model.objects.filter(parent_folder__isnull=True).exclude(is_public=False)
 
         # Return the searched, filtered, and sorted queryset
         return queryset
 
     def get_context_data(self, **kwargs):
+        """
+        Customise context data passed to template
+        """
         # Get current view's context
-        context = super(DataListView, self).get_context_data(**kwargs)
-        # Add DataLinkCategories to filter on
-        context['categories'] = models.DataLinkCategory.objects.filter(admin_published=True)
+        context = super(DataHomeView, self).get_context_data(**kwargs)
+        # Also pass through files that have no parent_folder
+        context['file_list'] = models.File.objects.filter(parent_folder__isnull=True).exclude(is_public=False)
         # Return context
+        return context
+
+
+class DataFolderView(DetailView):
+    """
+    Class-based view to show the data folder template
+    This shows all items (files and folders)
+    that have the current folder object as their parent_folder
+    """
+
+    template_name = 'data/data.html'
+    model = models.Folder
+
+    def get_context_data(self, **kwargs):
+        context = super(DataFolderView, self).get_context_data(**kwargs)
+        # Subfolders
+        context['folder_list'] = models.Folder.objects.filter(parent_folder=self.kwargs.get('pk')).exclude(is_public=False)
+        # Files
+        context['file_list'] = models.File.objects.filter(parent_folder=self.kwargs.get('pk')).exclude(is_public=False)
         return context

@@ -4,5 +4,6 @@ from . import views
 app_name = 'data'
 
 urlpatterns = [
-    path('', views.DataListView.as_view(), name='data-list'),
+    path('', views.DataHomeView.as_view(), name='data-home'),
+    path('<pk>/', views.DataFolderView.as_view(), name='data-folder'),
 ]

@@ -4,56 +4,57 @@ from . import models
 admin.site.site_header = 'BIFoR Data: Admin Dashboard'
 
 
-def publish(modeladmin, request, queryset):
+def make_public(modeladmin, request, queryset):
     """
-    Sets all selected items in queryset to published
+    Sets all selected items in queryset to be public
     """
-    queryset.update(admin_published=True)
+    queryset.update(is_public=True)
 
 
-publish.short_description = "Publish (will appear on main site)"
+make_public.short_description = "Make Public (visible to all users)"
 
 
-def unpublish(modeladmin, request, queryset):
+def make_private(modeladmin, request, queryset):
     """
-    Sets all selected items in queryset to not published
+    Sets all selected items in queryset to not be public
     """
-    queryset.update(admin_published=False)
+    queryset.update(is_public=False)
 
 
-unpublish.short_description = "Unpublish (will not appear on main site)"
+make_private.short_description = "Make Private (only visible to select users)"
 
 
-class DataLinkAdminView(admin.ModelAdmin):
+class FileAdminView(admin.ModelAdmin):
     """
     Customise the content of the list of DataLinks in the Django admin
     """
     list_display = ('name',
-                    'description_short',
-                    'filepath',
-                    'category',
-                    'admin_published')
-    list_filter = ('admin_published', 'category')
-    search_fields = ('name', 'description', 'filepath')
+                    'extension',
+                    'parent_folder',
+                    'is_public',
+                    'filepath')
+    list_filter = ('is_public',)
+    search_fields = ('name',)
     list_per_page = 50
     ordering = ('name', 'id')
-    actions = (publish, unpublish)
+    actions = (make_public, make_private)
 
 
-class DataLinkCategoryAdminView(admin.ModelAdmin):
+class FolderAdminView(admin.ModelAdmin):
     """
     Customise the content of the list of DataLinkCategories in the Django admin
     """
     list_display = ('name',
-                    'description_short',
-                    'admin_published')
-    list_filter = ('admin_published',)
-    search_fields = ('name', 'description')
+                    'parent_folder',
+                    'is_public',
+                    'filepath')
+    list_filter = ('is_public',)
+    search_fields = ('name',)
     list_per_page = 50
     ordering = ('name', 'id')
-    actions = (publish, unpublish)
+    actions = (make_public, make_private)
 
 
 # Register
-admin.site.register(models.DataLink, DataLinkAdminView)
-admin.site.register(models.DataLinkCategory, DataLinkCategoryAdminView)
+admin.site.register(models.File, FileAdminView)
+admin.site.register(models.Folder, FolderAdminView)

@@ -1,60 +1,55 @@
 from django.db import models
 
 
-class DataLinkCategory(models.Model):
+class Folder(models.Model):
     """
-    Categories of data files (approx. 100 in total)
+    Folder to contain files and other folders (aka subfolders)
     """
 
-    name = models.CharField(max_length=255)
-    description = models.TextField(blank=True, null=True)
-
-    # Admin fields
-    admin_published = models.BooleanField(default=True)
-    admin_notes = models.TextField(blank=True, null=True)
-
-    # Metadata fields
-    meta_created_datetime = models.DateTimeField(auto_now_add=True, verbose_name='Created')
-    meta_lastupdated_datetime = models.DateTimeField(auto_now=True, verbose_name='Last Updated')
-
-    def __str__(self):
-        return self.name
+    name = models.TextField(max_length=255)
+    parent_folder = models.ForeignKey("Folder", on_delete=models.SET_NULL, blank=True, null=True)
+    is_public = models.BooleanField(default=True)
 
     @property
-    def description_short(self):
-        return self.description[:75]
+    def filepath(self):
+        if self.parent_folder:
+            return f"{self.parent_folder.filepath}/{self.name}"
+        else:
+            return self.name
+
+    def __str__(self):
+        return self.filepath
 
     class Meta:
         ordering = ['name', 'id']
-        verbose_name_plural = "Data link categories"
 
 
-class DataLink(models.Model):
+class File(models.Model):
     """
-    A link to a data file
+    A link to a data file (not a file directly uploaded)
     """
 
-    name = models.CharField(max_length=255)
-    description = models.TextField(blank=True, null=True)
-    filepath = models.TextField()
+    name = models.TextField()
+    extension = models.CharField(max_length=255, blank=True, null=True)
+    parent_folder = models.ForeignKey(Folder, on_delete=models.CASCADE, blank=True, null=True)
+    is_public = models.BooleanField(default=True)
 
-    # Foreign Key fields
-    category = models.ForeignKey(DataLinkCategory, on_delete=models.SET_NULL, blank=True, null=True)
+    @property
+    def full_name(self):
+        if self.extension:
+            return f"{self.name}.{self.extension}"
+        else:
+            return self.name
 
-    # Admin fields
-    admin_published = models.BooleanField(default=True)
-    admin_notes = models.TextField(blank=True, null=True)
-
-    # Metadata fields
-    meta_created_datetime = models.DateTimeField(auto_now_add=True, verbose_name='Created')
-    meta_lastupdated_datetime = models.DateTimeField(auto_now=True, verbose_name='Last Updated')
+    @property
+    def filepath(self):
+        if self.parent_folder:
+            return f"{self.parent_folder.filepath}/{self.full_name}"
+        else:
+            return self.full_name
 
     def __str__(self):
         return self.name
-
-    @property
-    def description_short(self):
-        return self.description[:75]
 
     class Meta:
         ordering = ['name', 'id']
