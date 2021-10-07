@@ -1,6 +1,4 @@
 from django.views.generic import (ListView, DetailView)
-from django.db.models import Q
-from django.db.models.functions import Lower
 from . import models
 
 
@@ -52,7 +50,9 @@ class DataFolderView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(DataFolderView, self).get_context_data(**kwargs)
         # Subfolders
-        context['folder_list'] = models.Folder.objects.filter(parent_folder=self.kwargs.get('pk')).exclude(is_public=False)
+        context['folder_list'] = models.Folder.objects\
+            .filter(parent_folder=self.kwargs.get('pk'))\
+            .exclude(is_public=False)
         # Files
         context['file_list'] = models.File.objects.filter(parent_folder=self.kwargs.get('pk')).exclude(is_public=False)
         return context
