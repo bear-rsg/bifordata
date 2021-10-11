@@ -163,6 +163,7 @@ nav {
     background-color: white;
     text-transform: uppercase;
     vertical-align: middle;
+    border-bottom: 1px solid #CCC;
 }
 
 .navbar-brand {
@@ -295,34 +296,73 @@ main a {
     opacity: 0.8;
 }
 
-.list-content-item {
+#data-controls {
     display: block;
-    border-left: 1.3rem solid #CCC;
-    padding: 1em;
-    margin: 1em 0;
-    background: #F2F2F2;
-    color: #202020;
+    border-bottom: 1px solid black;
+    padding: 0.5em;
+    margin: 5em auto 0.5em auto;
+    text-align: left;
 }
 
-.list-content-item:hover {
-    text-decoration: none;
-    border-left: 1.7rem solid #937200;
-    background: #EEE;
+#data-controls div {
+    display: inline-block;
+    width: 10%;
+}
+
+#data-controls i {
+    font-size: 1.7em;
+}
+
+#data-controls input {
+    display: inline-block;
+    width: 78%;
+    text-align: left;
+}
+
+.data-folder {
+    display: inline-block;
+    width: 10em;
+    text-align: center;
+    color: #404040;
+}
+
+.data-folder:hover {
     color: #937200;
+    text-decoration: none;
 }
 
-.list-content-item-name {
-    font-weight: bold;
+.data-folder-icon {
+    font-size: 5em;
+    display: block;
 }
 
-.list-content-item-category {
-    margin: 0 0 1em 0;
-    font-size: 0.8em;
-}
-
-.list-content-item-description {
+.data-folder-name {
+    margin-top: -1.3em;
     font-size: 0.9em;
 }
+
+.data-file {
+    display:inline-block;
+    width: 8em;
+    text-align: center;
+    color: #707070;
+}
+
+.data-file:hover {
+    color: #937200;
+    text-decoration: none;
+}
+
+.data-file-icon {
+    font-size: 3.7em;
+    display:block;
+}
+
+.data-file-name {
+    margin-top: -0.5em;
+    font-size: 0.9em;
+}
+
 
 /* ---------- Footer ---------- */
 
