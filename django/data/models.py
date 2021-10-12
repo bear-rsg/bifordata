@@ -6,7 +6,7 @@ class Folder(models.Model):
     Folder to contain files and other folders (aka subfolders)
     """
 
-    name = models.TextField(max_length=255)
+    name = models.CharField(max_length=255)
     parent_folder = models.ForeignKey("Folder", on_delete=models.SET_NULL, blank=True, null=True)
     is_public = models.BooleanField(default=True)
 
@@ -29,7 +29,7 @@ class File(models.Model):
     A link to a data file (not a file directly uploaded)
     """
 
-    name = models.TextField()
+    name = models.CharField(max_length=255)
     extension = models.CharField(max_length=255, blank=True, null=True)
     parent_folder = models.ForeignKey(Folder, on_delete=models.CASCADE, blank=True, null=True)
     is_public = models.BooleanField(default=True)
