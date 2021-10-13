@@ -1,4 +1,5 @@
 from django.db import models
+import os
 
 
 class Folder(models.Model):
@@ -7,15 +8,9 @@ class Folder(models.Model):
     """
 
     name = models.CharField(max_length=255)
+    filepath = models.TextField(unique=True)
     parent_folder = models.ForeignKey("Folder", on_delete=models.SET_NULL, blank=True, null=True)
     is_public = models.BooleanField(default=True)
-
-    @property
-    def filepath(self):
-        if self.parent_folder:
-            return f"{self.parent_folder.filepath}/{self.name}"
-        else:
-            return self.name
 
     def __str__(self):
         return self.filepath
@@ -35,7 +30,7 @@ class File(models.Model):
     is_public = models.BooleanField(default=True)
 
     @property
-    def full_name(self):
+    def name_full(self):
         if self.extension:
             return f"{self.name}.{self.extension}"
         else:
@@ -44,9 +39,9 @@ class File(models.Model):
     @property
     def filepath(self):
         if self.parent_folder:
-            return f"{self.parent_folder.filepath}/{self.full_name}"
+            return os.path.join(self.parent_folder.filepath, self.name_full)
         else:
-            return self.full_name
+            return self.name_full
 
     def __str__(self):
         return self.name

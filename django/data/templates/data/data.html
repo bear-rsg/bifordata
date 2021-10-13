@@ -22,6 +22,10 @@
     </div>
 </section>
 
+{% if folder %}
+    <h2>{{ folder.filepath }}</h2>
+{% endif %}
+
 <section class="container">
     <h3>Folders</h3>
     <div id="data-folders">
@@ -46,7 +50,7 @@
         {% for file in file_list %}
             <a href="/datafiles/{{ file.filepath }}" class="data-file">
                 <div class="data-file-icon"><i class="fas fa-file"></i></div>
-                <div class="data-file-name">{{ file.full_name }}</div>
+                <div class="data-file-name">{{ file.name_full }}</div>
             </a>
         {% empty %}
             <div id="data-files-empty">No files found</div>
