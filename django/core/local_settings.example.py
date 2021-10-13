@@ -37,3 +37,6 @@ DATABASES = {
         },
     }
 }
+
+# Specify the root directory path for use in the 'data' app
+DATA_ROOT = "path/to/data/folder"

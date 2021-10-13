@@ -1,5 +1,7 @@
 from django.views.generic import (ListView, DetailView)
-from . import models
+from . import models, data_sync
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
 
 class DataHomeView(ListView):
@@ -56,3 +58,20 @@ class DataFolderView(DetailView):
         # Files
         context['file_list'] = models.File.objects.filter(parent_folder=self.kwargs.get('pk')).exclude(is_public=False)
         return context
+
+
+@login_required
+def DataSyncView(request):
+    """
+    Functional view to run the XML importer
+    Show a success page if completed successfully, else show error page
+    Requires user to be logged in (via the Django dashboard)
+    """
+
+    try:
+        data_sync.data_sync()
+        return render(request, 'data/data-sync-success.html')
+
+    except Exception as e:
+        print(e)
+        return render(request, 'data/data-sync-fail.html')

@@ -29,3 +29,5 @@ DATABASES = {
         },
     }
 }
+
+DATA_ROOT = "path/to/data/folder"
