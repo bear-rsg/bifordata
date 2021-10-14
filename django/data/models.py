@@ -14,7 +14,7 @@ class Folder(models.Model):
 
     def __str__(self):
         return self.filepath
-    
+
     @property
     def name_short(self):
         if len(self.name) > 26:
@@ -42,7 +42,7 @@ class File(models.Model):
             return f"{self.name}.{self.extension}"
         else:
             return self.name
-    
+
     @property
     def name_short(self):
         if len(self.name) > 22:
