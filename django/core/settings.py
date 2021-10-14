@@ -100,6 +100,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Login urls
+LOGIN_URL = "/dashboard/"
 
 # Import local_settings.py
 SECRET_KEY = None

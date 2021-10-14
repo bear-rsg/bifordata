@@ -298,69 +298,56 @@ main a {
 
 #data-controls {
     display: block;
-    border-bottom: 1px solid black;
-    padding: 0.5em;
-    margin: 5em auto 0.5em auto;
+    background-color: #EEE;
+    padding: 0.7em;
+    margin: 5em auto 0 auto;
     text-align: left;
-}
-
-#data-controls div {
-    display: inline-block;
-    width: 10%;
 }
 
 #data-controls i {
     font-size: 1.7em;
-}
-
-#data-controls input {
-    display: inline-block;
-    width: 78%;
-    text-align: left;
-}
-
-.data-folder {
-    display: inline-block;
-    width: 10em;
-    text-align: center;
     color: #404040;
 }
 
-.data-folder:hover {
+#data-controls i:hover {
+    color: #937200;
+}
+
+#data-filepath {
+    background: #EEE;
+    padding: 0.3em 0.8em;
+    font-size: 0.9em;
+}
+
+.data-object {
+    display: inline-block;
+    text-align: center;
+    color: #404040;
+    border: 1px solid white;
+}
+
+.data-object:hover {
     color: #937200;
     text-decoration: none;
+    border: 1px solid #CCC;
+}
+
+.data-object-name {
+    margin-top: -1.3em;
+    font-size: 0.85em;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    height: 3.5em;
 }
 
 .data-folder-icon {
-    font-size: 5em;
+    font-size: 4.7em;
     display: block;
 }
 
-.data-folder-name {
-    margin-top: -1.3em;
-    font-size: 0.9em;
-}
-
-.data-file {
-    display:inline-block;
-    width: 8em;
-    text-align: center;
-    color: #707070;
-}
-
-.data-file:hover {
-    color: #937200;
-    text-decoration: none;
-}
-
 .data-file-icon {
-    font-size: 3.7em;
-    display:block;
-}
-
-.data-file-name {
-    margin-top: -0.5em;
-    font-size: 0.9em;
+    font-size: 4em;
+    display: block;
 }
 
 
