@@ -20,40 +20,34 @@
         <!-- Search -->
         <input type="text" id="data-controls-search" placeholder="Search">
     </div>
+    {% if folder %}
+        <div id="data-filepath">{{ folder.filepath }}</div>
+    {% endif %}
 </section>
 
-{% if folder %}
-    <h2>{{ folder.filepath }}</h2>
-{% endif %}
-
 <section class="container">
-    <h3>Folders</h3>
     <div id="data-folders">
         {% for folder in folder_list %}
-            <a href="{% url 'data:data-folder' folder.id %}" class="data-folder">
+            <a href="{% url 'data:data-folder' folder.id %}" class="data-folder data-object" title="{{ folder.name }}">
                 <div class="data-folder-icon">
                     <i class="fas fa-folder"></i>
                 </div>
-                <div class="data-folder-name">
-                    {{ folder.name }}
+                <div class="data-folder-name data-object-name">
+                    {{ folder.name_short }}
                 </div>
             </a>
-        {% empty %}
-            <div id="data-folders-empty">No folders found</div>
         {% endfor %}
     </div>
-</section>
-
-<section class="container">
-    <h3>Files</h3>
     <div id="data-files">
         {% for file in file_list %}
-            <a href="/datafiles/{{ file.filepath }}" class="data-file">
-                <div class="data-file-icon"><i class="fas fa-file"></i></div>
-                <div class="data-file-name">{{ file.name_full }}</div>
+            <a href="/datafiles/{{ file.filepath }}" class="data-file data-object" title="{{ file.name_full }}">
+                <div class="data-file-icon">
+                    <i class="fas fa-file"></i>
+                </div>
+                <div class="data-file-name  data-object-name">
+                    {{ file.name_short }}
+                </div>
             </a>
-        {% empty %}
-            <div id="data-files-empty">No files found</div>
         {% endfor %}
     </div>
 </section>

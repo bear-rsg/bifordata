@@ -45,7 +45,26 @@
         margin-top: 1.3em;
         font-size: 1.3em;
     }
-    
+
+    /* ---------- Data List ---------- */
+
+    #data-controls input {
+        display: block;
+    }
+
+    #data-controls div {
+        display: inline-block;
+        width: 4em;
+        padding: 0.5em;
+        text-align: center;
+    }
+
+    .data-object {
+        width: 8em;
+        margin: 0.5em;
+        padding: 0.3em;
+    }
+
     /* ---------- Footer ---------- */
 
     #footer-content img {
