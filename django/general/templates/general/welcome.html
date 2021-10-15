@@ -4,8 +4,9 @@
 {% block main %}
     
 <section id="welcome-banner">
-    <div id="welcome-banner-proceed">
-        <i class="fas fa-angle-down"></i>
+    <div id="welcome-banner-content" class="container">
+        <img src="{% static 'images/logo-bifor-data-white.png' %}" alt="BIFoR Data logo">
+        <a href="{% url 'data:data-home' %}">Browse our data</a>
     </div>
 </section>
 

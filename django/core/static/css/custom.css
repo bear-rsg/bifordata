@@ -216,13 +216,29 @@ main a {
 /* ---------- Welcome ---------- */
 
 #welcome-banner {
-	background: url('../images/welcome-bg.jpg');
+    background: url('../images/welcome-bg.jpg');
     /* https://unsplash.com/photos/hZX4tYgljUI */
-	background-size: cover;
-	background-position: bottom;
-	background-attachment: fixed;
-	background-color: white;
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    background-color: white;
     height: 75vh;
+    text-align: center;
+}
+
+#welcome-banner-content img {
+    width: 40em;
+    max-width: 90%;
+    display: block;
+    margin: 1em auto;
+}
+
+#welcome-banner-content a {
+    background: #937200;
+    color: white;
+    padding: 0.5em 1em;
+    margin-top: 3em;
+    display: inline-block;
 }
 
 /* ---------- Data List ---------- */
