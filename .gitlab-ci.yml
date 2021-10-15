@@ -10,6 +10,7 @@ Django Tests:
   script:
     - cd django
     - mv core/local_settings.test.py core/local_settings.py
+    - mv core/local_settings_dataroot.test.py core/local_settings_dataroot.py
     - coverage run manage.py test
     - coverage report
     - coverage xml -o coverage.xml
