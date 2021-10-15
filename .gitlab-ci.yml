@@ -26,6 +26,7 @@ accessibility:
   script:
     - cd django
     - mv core/local_settings.test.py core/local_settings.py
+    - mv core/local_settings_dataroot.test.py core/local_settings_dataroot.py
     - python manage.py migrate
     - python manage.py runserver & sleep 5
     - pa11y-ci
