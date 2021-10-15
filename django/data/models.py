@@ -18,7 +18,7 @@ class Folder(models.Model):
     @property
     def name_short(self):
         if len(self.name) > 26:
-            return f"{self.name[0:13]} [...] {self.name[-13:]}"
+            return f"{self.name[0:13]}...{self.name[-13:]}"
         else:
             return self.name
 
@@ -46,7 +46,7 @@ class File(models.Model):
     @property
     def name_short(self):
         if len(self.name) > 22:
-            return f"{self.name[0:13]}[...]{self.name[-9:]}.{self.extension}"
+            return f"{self.name[0:13]}...{self.name[-9:]}.{self.extension}"
         else:
             return self.name_full
 
