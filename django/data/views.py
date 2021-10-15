@@ -53,10 +53,10 @@ class DataFolderView(DetailView):
         context = super(DataFolderView, self).get_context_data(**kwargs)
         # Subfolders
         context['folder_list'] = models.Folder.objects\
-            .filter(parent_folder=self.kwargs.get('pk'))\
+            .filter(parent_folder__slug=self.kwargs.get('slug'))\
             .exclude(is_public=False)
         # Files
-        context['file_list'] = models.File.objects.filter(parent_folder=self.kwargs.get('pk')).exclude(is_public=False)
+        context['file_list'] = models.File.objects.filter(parent_folder__slug=self.kwargs.get('slug')).exclude(is_public=False)
         return context
 
 

@@ -1,5 +1,6 @@
 from django.db import models
 import os
+from django.utils.text import slugify
 
 
 class Folder(models.Model):
@@ -11,9 +12,7 @@ class Folder(models.Model):
     filepath = models.TextField(unique=True)
     parent_folder = models.ForeignKey("Folder", on_delete=models.SET_NULL, blank=True, null=True)
     is_public = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.filepath
+    slug = models.SlugField()
 
     @property
     def name_short(self):
@@ -21,6 +20,13 @@ class Folder(models.Model):
             return f"{self.name[0:13]}...{self.name[-13:]}"
         else:
             return self.name
+
+    def __str__(self):
+        return self.filepath
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.filepath)
+        super(Folder, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ['name', 'id']
@@ -35,6 +41,7 @@ class File(models.Model):
     extension = models.CharField(max_length=255, blank=True, null=True)
     parent_folder = models.ForeignKey(Folder, on_delete=models.CASCADE, blank=True, null=True)
     is_public = models.BooleanField(default=True)
+    slug = models.SlugField()
 
     @property
     def name_full(self):
@@ -59,6 +66,10 @@ class File(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.filepath)
+        super(File, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ['name', 'id']
