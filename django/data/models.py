@@ -23,7 +23,7 @@ class Folder(models.Model):
 
     def __str__(self):
         return self.filepath
-    
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.filepath)
         super(Folder, self).save(*args, **kwargs)
@@ -66,7 +66,7 @@ class File(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.filepath)
         super(File, self).save(*args, **kwargs)

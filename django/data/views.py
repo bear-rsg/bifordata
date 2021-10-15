@@ -34,7 +34,9 @@ class DataHomeView(ListView):
         # Get current view's context
         context = super(DataHomeView, self).get_context_data(**kwargs)
         # Also pass through files that have no parent_folder
-        context['file_list'] = models.File.objects.filter(parent_folder__isnull=True).exclude(is_public=False)
+        context['file_list'] = models.File.objects\
+            .filter(parent_folder__isnull=True)\
+            .exclude(is_public=False)
         # Return context
         return context
 
@@ -56,7 +58,9 @@ class DataFolderView(DetailView):
             .filter(parent_folder__slug=self.kwargs.get('slug'))\
             .exclude(is_public=False)
         # Files
-        context['file_list'] = models.File.objects.filter(parent_folder__slug=self.kwargs.get('slug')).exclude(is_public=False)
+        context['file_list'] = models.File.objects\
+            .filter(parent_folder__slug=self.kwargs.get('slug'))\
+            .exclude(is_public=False)
         return context
 
 
