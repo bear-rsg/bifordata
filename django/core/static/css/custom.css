@@ -222,28 +222,7 @@ main a {
 	background-position: bottom;
 	background-attachment: fixed;
 	background-color: white;
-    height: calc(100vh - 3em);
-}
-
-#welcome-banner-proceed {
-    font-size: 3em;
-	position: absolute;
-	bottom: 0.8em;
-    left: calc(50% - 40px);
-    border-radius: 100%;
-    width: 80px;
-    padding-top: 5px;
-    height: 80px;
-	text-align: center;
-    color: #937200;
-    background: white;
-    cursor: pointer;
-    line-height: 80px;
-}
-
-#welcome-banner-proceed:hover {
-    background-color: #937200;
-    color: white;
+    height: 75vh;
 }
 
 /* ---------- Data List ---------- */
