@@ -18,6 +18,14 @@ a:hover {
     color: #ac0d0d;
 }
 
+a.buttonlink {
+    background: #937200;
+    color: white;
+    padding: 0.5em 1em;
+    margin-top: 3em;
+    display: inline-block;
+}
+
 h1 {
     font-size: 1em;
     margin: 0;
@@ -67,6 +75,12 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.center {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
 }
 
 /* ---------- Forms ---------- */
@@ -231,14 +245,6 @@ main a {
     max-width: 90%;
     display: block;
     margin: 1em auto;
-}
-
-#welcome-banner-content a {
-    background: #937200;
-    color: white;
-    padding: 0.5em 1em;
-    margin-top: 3em;
-    display: inline-block;
 }
 
 /* ---------- Data List ---------- */

@@ -1,4 +1,4 @@
-from django.views.generic import (ListView, DetailView)
+from django.views.generic import (ListView, DetailView, TemplateView)
 from . import models, data_sync
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
@@ -62,6 +62,15 @@ class DataFolderView(DetailView):
             .filter(parent_folder__slug=self.kwargs.get('slug'))\
             .exclude(is_public=False)
         return context
+
+
+class DataSyncLandingView(TemplateView):
+    """
+    Class-based view to show the data sync landing page,
+    where users can click a link to execute the DataSyncView
+    """
+    
+    template_name = 'data/data-sync.html'
 
 
 @login_required

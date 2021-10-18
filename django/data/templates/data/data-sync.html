@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+<section class="container center">
+    <h2>Data Sync</h2>
+    <p>If you're ready to sync the contents of the data folder with this website then click the button below:</p>
+    <a href="{% url 'data:data-sync-process' %}" class="buttonlink">Sync Data</a>
+</section>
+
+{% endblock %}
