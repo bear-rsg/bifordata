@@ -25,7 +25,7 @@ class Folder(models.Model):
         return self.filepath
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.filepath)
+        self.slug = slugify(self.filepath.replace('/', '-'))
         super(Folder, self).save(*args, **kwargs)
 
     class Meta:

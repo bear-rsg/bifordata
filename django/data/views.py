@@ -69,7 +69,7 @@ class DataSyncLandingView(TemplateView):
     Class-based view to show the data sync landing page,
     where users can click a link to execute the DataSyncView
     """
-    
+
     template_name = 'data/data-sync.html'
 
 
