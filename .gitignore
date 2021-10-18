@@ -7,6 +7,7 @@ resources/private/
 django/media/
 django/static/
 node_modules/
+local_settings_dataroot.py
 
 
 ###################### Django Templated gitignore paths  ######################

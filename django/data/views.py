@@ -1,4 +1,4 @@
-from django.views.generic import (ListView, DetailView)
+from django.views.generic import (ListView, DetailView, TemplateView)
 from . import models, data_sync
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
@@ -34,7 +34,9 @@ class DataHomeView(ListView):
         # Get current view's context
         context = super(DataHomeView, self).get_context_data(**kwargs)
         # Also pass through files that have no parent_folder
-        context['file_list'] = models.File.objects.filter(parent_folder__isnull=True).exclude(is_public=False)
+        context['file_list'] = models.File.objects\
+            .filter(parent_folder__isnull=True)\
+            .exclude(is_public=False)
         # Return context
         return context
 
@@ -53,11 +55,22 @@ class DataFolderView(DetailView):
         context = super(DataFolderView, self).get_context_data(**kwargs)
         # Subfolders
         context['folder_list'] = models.Folder.objects\
-            .filter(parent_folder=self.kwargs.get('pk'))\
+            .filter(parent_folder__slug=self.kwargs.get('slug'))\
             .exclude(is_public=False)
         # Files
-        context['file_list'] = models.File.objects.filter(parent_folder=self.kwargs.get('pk')).exclude(is_public=False)
+        context['file_list'] = models.File.objects\
+            .filter(parent_folder__slug=self.kwargs.get('slug'))\
+            .exclude(is_public=False)
         return context
+
+
+class DataSyncLandingView(TemplateView):
+    """
+    Class-based view to show the data sync landing page,
+    where users can click a link to execute the DataSyncView
+    """
+
+    template_name = 'data/data-sync.html'
 
 
 @login_required

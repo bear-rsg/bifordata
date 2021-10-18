@@ -18,6 +18,14 @@ a:hover {
     color: #ac0d0d;
 }
 
+a.buttonlink {
+    background: #937200;
+    color: white;
+    padding: 0.5em 1em;
+    margin-top: 3em;
+    display: inline-block;
+}
+
 h1 {
     font-size: 1em;
     margin: 0;
@@ -67,6 +75,12 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.center {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
 }
 
 /* ---------- Forms ---------- */
@@ -216,34 +230,21 @@ main a {
 /* ---------- Welcome ---------- */
 
 #welcome-banner {
-	background: url('../images/welcome-bg.jpg');
+    background: url('../images/welcome-bg.jpg');
     /* https://unsplash.com/photos/hZX4tYgljUI */
-	background-size: cover;
-	background-position: bottom;
-	background-attachment: fixed;
-	background-color: white;
-    height: calc(100vh - 3em);
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    background-color: white;
+    height: 75vh;
+    text-align: center;
 }
 
-#welcome-banner-proceed {
-    font-size: 3em;
-	position: absolute;
-	bottom: 0.8em;
-    left: calc(50% - 40px);
-    border-radius: 100%;
-    width: 80px;
-    padding-top: 5px;
-    height: 80px;
-	text-align: center;
-    color: #937200;
-    background: white;
-    cursor: pointer;
-    line-height: 80px;
-}
-
-#welcome-banner-proceed:hover {
-    background-color: #937200;
-    color: white;
+#welcome-banner-content img {
+    width: 40em;
+    max-width: 90%;
+    display: block;
+    margin: 1em auto;
 }
 
 /* ---------- Data List ---------- */

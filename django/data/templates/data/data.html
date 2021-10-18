@@ -10,7 +10,7 @@
         <!-- Back -->
         {% if folder %}
             {% if folder.parent_folder %}
-                <div><a href="{% url 'data:data-folder' folder.parent_folder.id %}"><i class="fas fa-arrow-circle-left"></i></a></div>
+                <div><a href="{% url 'data:data-folder' folder.parent_folder.slug %}"><i class="fas fa-arrow-circle-left"></i></a></div>
             {% else %}
             <div><a href="{% url 'data:data-home' %}"><i class="fas fa-arrow-circle-left"></i></a></div>
             {% endif %}
@@ -28,7 +28,7 @@
 <section class="container">
     <div id="data-folders">
         {% for folder in folder_list %}
-            <a href="{% url 'data:data-folder' folder.id %}" class="data-folder data-object" title="{{ folder.name }}">
+            <a href="{% url 'data:data-folder' folder.slug %}" class="data-folder data-object" title="{{ folder.name }}">
                 <div class="data-folder-icon">
                     <i class="fas fa-folder"></i>
                 </div>
