@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load settings_value %}
 
 {% block main %}
 
@@ -40,7 +41,7 @@
     </div>
     <div id="data-files">
         {% for file in file_list %}
-            <a href="/{{ file.filepath }}" class="data-file data-object" title="{{ file.name_full }}">
+            <a href="/{% settings_value 'DATA_ROOT_FILES' %}{{ file.filepath }}" class="data-file data-object" title="{{ file.name_full }}">
                 <div class="data-file-icon">
                     <i class="fas fa-file"></i>
                 </div>

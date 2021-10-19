@@ -8,3 +8,5 @@ so that it can be more easily managed by Salt.
 
 # The path of the root data folder
 DATA_ROOT = "/path/to/local/data/folder"
+# The name of the dir inside data root where the data files are stored
+DATA_ROOT_FILES = "files"
