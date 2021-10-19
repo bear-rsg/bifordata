@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+<section class="container">
+    <div id="data-controls">
+        <!-- Home -->
+        <div><a href="{% url 'data:data-home' %}"><i class="fas fa-home"></i></a></div>
+        <!-- Back -->
+        {% if folder %}
+            {% if folder.parent_folder %}
+                <div><a href="{% url 'data:data-folder' folder.parent_folder.slug %}"><i class="fas fa-arrow-circle-left"></i></a></div>
+            {% else %}
+            <div><a href="{% url 'data:data-home' %}"><i class="fas fa-arrow-circle-left"></i></a></div>
+            {% endif %}
+        {% else %}
+            <div><i class="fas fa-arrow-circle-left"></i></div>
+        {% endif %}
+        <!-- Search -->
+        <input type="text" id="data-controls-search" placeholder="Search">
+    </div>
+    {% if folder %}
+        <div id="data-filepath">{{ folder.filepath }}</div>
+    {% endif %}
+</section>
+
+<section class="container">
+    <div id="data-folders">
+        {% for folder in folder_list %}
+            <a href="{% url 'data:data-folder' folder.slug %}" class="data-folder data-object" title="{{ folder.name }}">
+                <div class="data-folder-icon">
+                    <i class="fas fa-folder"></i>
+                </div>
+                <div class="data-folder-name data-object-name">
+                    {{ folder.name_short }}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    <div id="data-files">
+        {% for file in file_list %}
+            <a href="/datafiles/{{ file.filepath }}" class="data-file data-object" title="{{ file.name_full }}">
+                <div class="data-file-icon">
+                    <i class="fas fa-file"></i>
+                </div>
+                <div class="data-file-name  data-object-name">
+                    {{ file.name_short }}
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</section>
+
+<script>
+    $(document).ready(function() {
+
+        // Search
+        function filter_list(filterText, itemClass){
+            $(itemClass).each(function(){
+                // Show item if search matches
+                if($(this).text().toUpperCase().indexOf(filterText) != -1) $(this).show();
+                // Hide item if search doesn't match
+                else $(this).hide();
+            });
+        }
+        $("#data-controls-search").on('keyup', function(){
+            var filterText = $(this).val().toUpperCase();
+            filter_list(filterText, ".data-folder");
+            filter_list(filterText, ".data-file");
+        });
+
+        // Toggle folder icon when hovering
+        $('.data-folder').hover(
+            function() {
+                $(this).find('.data-folder-icon').html(`<i class='fas fa-folder-open'></i>`)
+            }, function() {
+                $(this).find('.data-folder-icon').html(`<i class='fas fa-folder'></i>`)
+            }
+        );
+
+        // Toggle file icon when hovering
+        $('.data-file').hover(
+            function() {
+                $(this).find('.data-file-icon').html(`<i class='fas fa-file-download'></i>`);
+            }, function() {
+                $(this).find('.data-file-icon').html(`<i class='fas fa-file'></i>`);
+            }
+        );
+
+    });
+</script>
+
+{% endblock %}

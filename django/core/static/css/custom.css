@@ -1,0 +1,380 @@
+
+/* ---------- General ---------- */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #344152;
+    margin: 0;
+    font-weight: 300;
+    background-color: white;
+}
+
+a {
+    color: #937200;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #ac0d0d;
+}
+
+a.buttonlink {
+    background: #937200;
+    color: white;
+    padding: 0.5em 1em;
+    margin-top: 3em;
+    display: inline-block;
+}
+
+h1 {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+    color: #937200;
+    font-weight: 200;
+}
+
+h2 {
+    padding-top: 2em;
+    color: #937200;
+    font-weight: 300;
+    text-align: center;
+    font-size: 1.7em;
+    margin: 1.5em 0 1em 0;
+}
+
+h3 {
+    padding: 2em 0 0.5em 0;
+    color: #937200;
+    font-weight: 500;
+    text-align: left;
+    font-size: 1.5em;
+}
+
+.iframe-large {
+    display: block;
+    margin: 0 auto;
+    overflow: scroll;
+    width: 100%;
+    height: calc(90vh - 7em);
+    border: none;
+}
+
+.youtube-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 0;
+    height: 0;
+    margin: 7em auto;
+}
+
+.youtube-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.center {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+/* ---------- Forms ---------- */
+
+label {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 2em;
+    font-size: 0.95em;
+}
+
+label.label-active {
+    color: #937200;
+}
+
+.helptext {
+    font-size: 0.9em;
+    color: #AAA;
+}
+
+.errorlist {
+    color: red;
+}
+
+input,
+textarea,
+select,
+button[type='submit'] {
+    width: 100%;
+    display: block;
+    padding: 0.3em;
+}
+
+#story-create-form input,
+#story-create-form textarea,
+#story-create-form select {
+    background: #EEE;
+    border: none;
+}
+
+#story-create-form input[type='file'] {
+    border: 1px solid white;
+    background: none;
+}
+
+input[type='checkbox'] {
+    display: inline;
+    width: auto;
+}
+
+form ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+form ul li {
+    display: inline-block;
+}
+
+form ul li label {
+    margin: 0.3em 2em 0 0;
+    cursor: pointer;
+}
+
+form ul li label:hover {
+    color: #937200;
+}
+
+button[type='submit'],
+button[type='submit']:visited {
+    background: #937200;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 1em;
+    border-radius: 0.5em;
+    margin: 3em 0 1em 0;
+}
+
+button[type='submit']:hover {
+    background: #937200;
+    color: white;
+}
+
+.form-submit-notes {
+    font-size: 0.9em;
+    color: #AAA;
+}
+
+/* ---------- Navigation ---------- */
+
+nav {
+    color: #344152;
+    background-color: white;
+    text-transform: uppercase;
+    vertical-align: middle;
+    border-bottom: 1px solid #CCC;
+}
+
+.navbar-brand {
+    display: inline-block;
+    text-transform: capitalize;
+    font-size: 1.6em;
+    color: #937200;
+}
+
+.navbar-brand img {
+    height: 1em;
+}
+
+.navbar-nav {
+    letter-spacing: 0.15em;
+}
+
+.nav-link {
+    font-weight: 300;
+    font-size: 1.1em;
+    color: #344152;
+}
+
+.nav-link.active {
+    color: #937200;
+}
+
+nav a:hover,
+.dropdown-item:hover {
+    color: #937200;
+}
+
+/* ---------- Main ---------- */
+
+main {
+    padding-bottom: 4em;
+}
+
+main p,
+main ul,
+main ol {
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+main a {
+    text-decoration: none;
+}
+
+/* ---------- Welcome ---------- */
+
+#welcome-banner {
+    background: url('../images/welcome-bg.jpg');
+    /* https://unsplash.com/photos/hZX4tYgljUI */
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    background-color: white;
+    height: 75vh;
+    text-align: center;
+}
+
+#welcome-banner-content img {
+    width: 40em;
+    max-width: 90%;
+    display: block;
+    margin: 1em auto;
+}
+
+/* ---------- Data List ---------- */
+
+#list-options {
+    background: #F2F2F2;
+    padding: 2em;
+    margin: 5em auto 1em auto;
+}
+
+.list-options-item {
+    display: inline-block;
+    width: 33%;
+}
+
+#list-options-search {
+    width: 100%;
+}
+
+#list-options-search-input {
+    width: calc(100% - 4.3em);
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 0.2em 0 0 0.2em;
+    border: 0px solid black;
+}
+
+#list-options-search-button {
+    display: inline-block;
+    width: 4em;
+    margin: 0em;
+    border-radius: 0 0.5em 0.5em 0;
+    vertical-align: middle;
+    padding: 0.32em 0;
+}
+
+#list-options-search-button:hover {
+    opacity: 0.8;
+}
+
+#list-options select {
+    width: 100%;
+}
+
+#list-options-links-reset {
+    float: right;
+    cursor: pointer;
+}
+#list-options-links-reset:hover {
+    opacity: 0.8;
+}
+
+#data-controls {
+    display: block;
+    background-color: #EEE;
+    padding: 0.7em;
+    margin: 5em auto 0 auto;
+    text-align: left;
+}
+
+#data-controls i {
+    font-size: 1.7em;
+    color: #404040;
+}
+
+#data-controls i:hover {
+    color: #937200;
+}
+
+#data-filepath {
+    background: #EEE;
+    padding: 0.3em 0.8em;
+    font-size: 0.9em;
+}
+
+.data-object {
+    display: inline-block;
+    text-align: center;
+    color: #404040;
+    border: 1px solid white;
+}
+
+.data-object:hover {
+    color: #937200;
+    text-decoration: none;
+    border: 1px solid #CCC;
+}
+
+.data-object-name {
+    margin-top: -1.3em;
+    font-size: 0.85em;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    height: 3.5em;
+}
+
+.data-folder-icon {
+    font-size: 4.7em;
+    display: block;
+}
+
+.data-file-icon {
+    font-size: 4em;
+    display: block;
+}
+
+
+/* ---------- Footer ---------- */
+
+footer {
+    padding: 5em 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+#footer-content-text {
+    margin-top: 2em;
+}
+
+footer a:hover {
+    color: #937200;
+}
+
+/* ---------- Error Pages ---------- */
+
+.errorpage-path {
+    font-weight: bold;
+}
+
+.errorpage-code {
+    margin-top: 3em;
+    font-size: 0.8em;
+}

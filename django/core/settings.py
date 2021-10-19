@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'general',
+    'data'
 ]
 
 MIDDLEWARE = [
@@ -99,6 +100,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Login urls
+LOGIN_URL = "/dashboard/"
 
 # Import local_settings.py
 SECRET_KEY = None
@@ -110,3 +113,9 @@ except ImportError:
 # Ensure the SECRET_KEY is supplied in local_settings.py - and trust that the other settings are there too.
 if not SECRET_KEY:  # NOQA
     sys.exit('Missing SECRET_KEY in local_settings.py')
+
+# Import local_settings_dataroot.py
+try:
+    from .local_settings_dataroot import DATA_ROOT  # NOQA
+except ImportError:
+    sys.exit('Unable to import local_settings_dataroot.py (refer to local_settings_dataroot.example.py)')

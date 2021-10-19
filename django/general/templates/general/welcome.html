@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+    
+<section id="welcome-banner">
+    <div id="welcome-banner-content" class="container">
+        <img src="{% static 'images/logo-bifor-data-white.png' %}" alt="BIFoR Data logo">
+        <a href="{% url 'data:data-home' %}" class="buttonlink">Browse our data</a>
+    </div>
+</section>
+
+<section id="welcome-content" class="container">
+    <h2>Welcome</h2>
+    <p>
+        (Content to be added)
+    </p>
+</section>
+
+<script>
+    $(document).ready(function() {
+        // Scroll down to main welcome section when clicking on the proceed button in the welcome banner
+        $('#welcome-banner-proceed').on('click', function(){
+            $('html,body').animate({ scrollTop: $('#welcome-content').offset().top - 40 }, 800); 
+        });
+    });
+</script>
+
+{% endblock %}

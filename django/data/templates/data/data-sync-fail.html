@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+<section class="container">
+    <h2>Oops</h2>
+    <p>There has been an issue in syncing the data. If you'd like to try syncing again, click below. If the problem persists, please get in touch with the Research Software Group.</p>
+    <a href="{% url 'data:data-sync-process' %}" class="buttonlink">Sync Data Again</a>
+</section>
+
+{% endblock %}

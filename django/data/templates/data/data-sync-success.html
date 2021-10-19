@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+<section class="container center">
+    <h2>Success</h2>
+    <p>Data has synced <strong>successfully</strong>, with no known issues. If you need to sync again, click below:</p>
+    <a href="{% url 'data:data-sync-process' %}" class="buttonlink">Sync Data Again</a>
+</section>
+
+{% endblock %}
