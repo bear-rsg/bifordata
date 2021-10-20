@@ -116,6 +116,6 @@ if not SECRET_KEY:  # NOQA
 
 # Import local_settings_dataroot.py
 try:
-    from .local_settings_dataroot import DATA_ROOT  # NOQA
+    from .local_settings_dataroot import *  # NOQA
 except ImportError:
     sys.exit('Unable to import local_settings_dataroot.py (refer to local_settings_dataroot.example.py)')

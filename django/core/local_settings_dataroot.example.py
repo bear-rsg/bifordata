@@ -8,3 +8,5 @@ so that it can be more easily managed by Salt.
 
 # The path of the root data folder
 DATA_ROOT = "/path/to/local/data/folder"
+# This is prefixed to the URLs generated for files found within DATA_ROOT
+DATA_ROOT_FILES = "files"
