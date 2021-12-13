@@ -231,7 +231,6 @@ main a {
 
 #welcome-banner {
     background: url('../images/welcome-bg.jpg');
-    /* https://unsplash.com/photos/hZX4tYgljUI */
     background-size: cover;
     background-position: bottom;
     background-attachment: fixed;
@@ -245,6 +244,10 @@ main a {
     max-width: 90%;
     display: block;
     margin: 1em auto;
+}
+
+#welcome-banner-button {
+    font-size: 1.2em;
 }
 
 /* ---------- Data List ---------- */
